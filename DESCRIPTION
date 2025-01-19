@@ -10,4 +10,12 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
+    dplyr,
+    lubridate,
+    openxlsx,
+    readxl,
+    rvest,
+    stringr,
     tibble
+Depends: 
+    tidyverse
