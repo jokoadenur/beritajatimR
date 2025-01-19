@@ -299,5 +299,5 @@ beritajatimr <- function(x) {
   View(beritajatim)
   write.xlsx(beritajatim, paste0("beritajatim_", Sys.Date(),".xlsx"))
 
-  return(beritajatim)
+  return(beritajatimcom)
 }
