@@ -38,7 +38,7 @@ utils::globalVariables(c("katakunci", "kategori", "kategori2", "tanggal", "lokas
 
 beritajatimr <- function(x) {
   dapatisi <- function(y){
-    teks <- read_html(y) %>% html_nodes('.entry-content p') %>% html_text() %>%
+    teks <- rvest::read_html(y) %>% rvest::html_nodes('.entry-content p') %>% rvest::html_text() %>%
       paste(collapse =",")
     return(teks)
   }
@@ -47,11 +47,11 @@ beritajatimr <- function(x) {
 
   for (hasil in seq(from = 1, to = x, by = 1)){
     url <- paste0("https://beritajatim.com/kanal/ekbis/page/",hasil,"/")
-    laman <- read_html(url)
+    laman <- rvest::read_html(url)
 
-    judul <- laman %>% html_nodes('.list-post-on-sm .post-title a') %>% html_text()
-    tglberita <- laman %>% html_nodes('.list-post-on-sm .post-date') %>% html_text()
-    link_judul <- laman %>% html_nodes('.list-post-on-sm .post-title a') %>% html_attr("href") %>%
+    judul <- laman %>% rvest::html_nodes('.list-post-on-sm .post-title a') %>% rvest::html_text()
+    tglberita <- laman %>% rvest::html_nodes('.list-post-on-sm .post-date') %>% rvest::html_text()
+    link_judul <- laman %>% rvest::html_nodes('.list-post-on-sm .post-title a') %>% rvest::html_attr("href") %>%
       paste(sep = "")
 
     isiberita <- sapply(link_judul, FUN = dapatisi, USE.NAMES = FALSE)
