@@ -296,7 +296,7 @@ beritajatimr <- function(x) {
   # berita fixed
   beritajatim <- coba[,-c(2, 8)]
   names(beritajatim) <- c("judul", "isiberita", "link", "lokasi", "tanggal", "sentimen", "estimasi lapus")
-  View(beritajatim)
+  assign("beritajatim", beritajatim, envir = .GlobalEnv)
   openxlsx::write.xlsx(beritajatim, paste0("beritajatim_", Sys.Date(),".xlsx"))
 
   return(beritajatimcom)
